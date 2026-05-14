@@ -1,0 +1,41 @@
+# ─── Environment files — NEVER commit ─────────────────────────────────────────
+**/.env
+**/.env.local
+**/.env.production
+**/.env.*.local
+backend/.env.backup
+
+# ─── Dependencies ──────────────────────────────────────────────────────────────
+frontend/node_modules/
+backend/vendor/
+
+# ─── Build output ──────────────────────────────────────────────────────────────
+frontend/dist/
+frontend/build/
+
+# ─── Laravel specific ──────────────────────────────────────────────────────────
+backend/storage/*.key
+backend/bootstrap/cache/*.php
+backend/.phpunit.result.cache
+backend/public/storage
+backend/public/hot
+
+# ─── Logs ──────────────────────────────────────────────────────────────────────
+**/*.log
+backend/storage/logs/*.log
+
+# ─── OS & Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.swp
+*.swo
+
+# ─── PHP ───────────────────────────────────────────────────────────────────────
+*.phar
+
+# ─── Node ──────────────────────────────────────────────────────────────────────
+npm-debug.log*
+yarn-error.log*
