@@ -24,6 +24,9 @@ backend/public/hot
 **/*.log
 backend/storage/logs/*.log
 
+# ─── Claude Code ───────────────────────────────────────────────────────────────
+CLAUDE.md
+
 # ─── OS & Editor ───────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
