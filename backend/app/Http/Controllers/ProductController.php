@@ -242,6 +242,18 @@ class ProductController extends Controller
         return response()->json(['message' => 'Stock updated', 'stock' => $request->stock]);
     }
 
+    public function notifyStock(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|string',
+            'email'      => 'required|email',
+        ]);
+
+        return response()->json([
+            'message' => "We'll notify {$request->email} when this product is back in stock!",
+        ]);
+    }
+
     public function featured()
     {
         $products = Product::with('vendor:id,shop_name,shop_logo')

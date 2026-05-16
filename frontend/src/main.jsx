@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { HelmetProvider } from 'react-helmet-async'
 import { Toaster } from 'react-hot-toast'
 import App from './App.jsx'
 import { store } from './store/store.js'
@@ -13,24 +14,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <ThemeProvider>
-          <AuthProvider>
-            <App />
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                duration: 3000,
-                style: {
-                  borderRadius: '10px',
-                  background: '#333',
-                  color: '#fff',
-                },
-                success: { iconTheme: { primary: '#16a34a', secondary: '#fff' } },
-                error:   { iconTheme: { primary: '#dc2626', secondary: '#fff' } },
-              }}
-            />
-          </AuthProvider>
-        </ThemeProvider>
+        <HelmetProvider>
+          <ThemeProvider>
+            <AuthProvider>
+              <App />
+              <Toaster
+                position="top-right"
+                toastOptions={{
+                  duration: 2500,
+                  style: { borderRadius: '12px', background: '#1f2937', color: '#fff', fontSize: '14px' },
+                  success: { iconTheme: { primary: '#16a34a', secondary: '#fff' } },
+                  error:   { iconTheme: { primary: '#dc2626', secondary: '#fff' } },
+                }}
+              />
+            </AuthProvider>
+          </ThemeProvider>
+        </HelmetProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

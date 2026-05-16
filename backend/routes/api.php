@@ -14,9 +14,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NotificationController;
 
 // ─── Public Routes ───────────────────────────────────────────────────────────
-Route::prefix('auth')->group(function () {
-    Route::post('register', [AuthController::class, 'register']);
-    Route::post('login',    [AuthController::class, 'login']);
+Route::prefix('auth')->middleware('throttle:10,1')->group(function () {
+    Route::post('register',        [AuthController::class, 'register']);
+    Route::post('login',           [AuthController::class, 'login']);
     Route::post('forgot-password', [AuthController::class, 'forgotPassword']);
 });
 
@@ -45,6 +45,9 @@ Route::prefix('categories')->group(function () {
 
 // Coupon validation - public
 Route::post('coupons/validate', [CouponController::class, 'validate']);
+
+// Stock notification (public endpoint)
+Route::post('products/notify', [ProductController::class, 'notifyStock']);
 
 // ─── Authenticated Routes ─────────────────────────────────────────────────────
 Route::middleware('jwt.auth')->group(function () {
